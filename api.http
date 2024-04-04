@@ -2,7 +2,25 @@ POST http://localhost:3000/events
 Content-Type: application/json
 
 {
-  "title": "nlw unite summit",
-  "details": "Um evento para quem e apaixonado por programacao",
-  "maximumAttendees": 100
+  "title": "novo evento",
+  "details": "evento de teste quantidade de participantes",
+  "maximumAttendees": 1
 }
+
+###
+
+POST http://localhost:3000/events/b09f97b7-d051-42af-a110-29a21d1c9f23/attendees
+Content-Type: application/json
+
+{
+  "name": "Isac Souza Filho",
+  "email": "isacsouzafilho2@rocketseat.com.br"
+}
+
+###
+
+GET http://localhost:3000/events/b09f97b7-d051-42af-a110-29a21d1c9f23
+
+###
+
+GET http://localhost:3000/attendee/1/badge
