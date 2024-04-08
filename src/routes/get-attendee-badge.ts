@@ -6,7 +6,7 @@ import { prisma } from "../lib/prisma";
 export async function getAttendeeBadge(app: FastifyInstance) {
   app
     .withTypeProvider<ZodTypeProvider>()
-    .get('/atendees/:attendeeId/badge', {
+    .get('/attendees/:attendeeId/badge', {
       schema: {
         params: z.object({
             attendeeId: z.coerce.number().int(),
@@ -20,6 +20,11 @@ export async function getAttendeeBadge(app: FastifyInstance) {
         select: {
           name: true,
           email: true,
+          event: {
+            select: {
+              title: true
+            },
+          },
         },
         where: {
           id: attendeeId,
@@ -30,6 +35,6 @@ export async function getAttendeeBadge(app: FastifyInstance) {
         throw new Error('Attendee not found')
       }
 
-      return res.status(200).send({attendee})
+      return res.send({attendee})
     })
   }
