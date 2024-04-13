@@ -24,3 +24,10 @@ GET http://localhost:3000/events/b09f97b7-d051-42af-a110-29a21d1c9f23
 ###
 
 GET http://localhost:3000/attendees/3/badge
+
+###
+GET http://localhost:3000/attendees/3/check-in
+
+###
+
+GET http://localhost:3000/events/b09f97b7-d051-42af-a110-29a21d1c9f23/attendees?query=Isac
